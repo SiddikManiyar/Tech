@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0ABAB5;
+  --color-secondary: #56DFCF;
+  --color-accent: #ADEED9;
+  --color-bg: #FFEDF3;
+  --color-surface: #FFFFFF;
+  --color-surface-2: #F6E2E8;
+  --color-border: rgba(10, 186, 181, 0.12);
+  --color-body: #1F302D;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-body);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(10, 186, 181, 0.3);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 186, 181, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 186, 181, 0.6);
+}
+
+/* Typography utilities */
+@layer utilities {
+  .text-gradient {
+    color: var(--color-primary);
+    background: linear-gradient(
+      135deg,
+      #052523 0%,
+      var(--color-primary) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @supports not (background-clip: text) {
+    .text-gradient {
+      -webkit-text-fill-color: #1F302D;
+    }
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary), #052523);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(10, 186, 181, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(10, 186, 181, 0.04);
+  }
+
+  .glass-hover {
+    transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-hover:hover {
+    border-color: rgba(10, 186, 181, 0.3);
+    box-shadow: 0 8px 32px rgba(10, 186, 181, 0.08);
+  }
+
+  .card-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y),
+      rgba(10, 186, 181, 0.06),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  .section-padding {
+    padding-left: clamp(1rem, 4vw, 4rem);
+    padding-right: clamp(1rem, 4vw, 4rem);
+  }
+
+  .grid-overlay {
+    background-image: linear-gradient(
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(
+      ellipse at center,
+      black 30%,
+      transparent 70%
+    );
+  }
+
+  .aurora-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(10, 186, 181, 0.15) 0%,
+      rgba(86, 223, 207, 0.1) 25%,
+      rgba(173, 238, 217, 0.08) 50%,
+      rgba(255, 237, 243, 0.12) 75%,
+      rgba(86, 223, 207, 0.1) 100%
+    );
+    background-size: 400% 400%;
+    animation: aurora 15s ease infinite alternate;
+  }
+
+  .footer-gradient-border {
+    border-top: 1px solid transparent;
+    background-image: linear-gradient(var(--color-bg), var(--color-bg)),
+      linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-accent),
+        var(--color-secondary)
+      );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition-all duration-300;
+    @apply hover:shadow-glow hover:brightness-110;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-transparent px-6 py-3 text-sm font-semibold text-white/80 transition-all duration-300;
+    @apply hover:border-primary/40 hover:bg-white/5 hover:text-white;
+  }
+}
+
+/* Light theme text-white and opacity overrides to ensure proper visibility */
+.text-white {
+  color: #1F302D !important;
+}
+.text-white\/90 {
+  color: rgba(31, 48, 45, 0.9) !important;
+}
+.text-white\/80 {
+  color: rgba(31, 48, 45, 0.8) !important;
+}
+.text-white\/70 {
+  color: rgba(31, 48, 45, 0.7) !important;
+}
+.text-white\/60 {
+  color: rgba(31, 48, 45, 0.6) !important;
+}
+.text-white\/50 {
+  color: rgba(31, 48, 45, 0.5) !important;
+}
+.text-white\/40 {
+  color: rgba(31, 48, 45, 0.4) !important;
+}
+.text-white\/30 {
+  color: rgba(31, 48, 45, 0.3) !important;
+}
+.text-white\/20 {
+  color: rgba(31, 48, 45, 0.2) !important;
+}
+
+/* Hover overrides */
+.hover\:text-white:hover {
+  color: #1F302D !important;
+}
+.group:hover .group-hover\:text-white {
+  color: #1F302D !important;
+}
+
+/* Background and border overrides */
+.bg-white\/5 {
+  background-color: rgba(31, 48, 45, 0.04) !important;
+}
+.bg-white\/10 {
+  background-color: rgba(31, 48, 45, 0.08) !important;
+}
+.border-white\/10 {
+  border-color: rgba(31, 48, 45, 0.08) !important;
+}
+.border-white\/20 {
+  border-color: rgba(31, 48, 45, 0.12) !important;
+}
+
+/* Exemptions for elements that MUST remain true white */
+.bg-primary .text-white,
+.bg-primary.text-white,
+.btn-primary,
+.btn-primary *,
+.bg-primary .text-white-pure,
+.text-white-pure,
+.bg-primary span {
+  color: #ffffff !important;
+}
+.bg-primary\/20 .text-primary {
+  color: #0ABAB5 !important;
+}
+

@@ -24,31 +24,31 @@ export async function POST(request: Request) {
       );
     }
 
-    // Set up path to the CSV file in the public folder
-    const csvPath = path.join(process.cwd(), "public", "applications.csv");
-    const fileExists = fs.existsSync(csvPath);
+    // Append to local CSV (wrapped in try-catch as serverless platforms like Vercel are read-only)
+    try {
+      const csvPath = path.join(process.cwd(), "public", "applications.csv");
+      const fileExists = fs.existsSync(csvPath);
 
-    // Prepare header if file doesn't exist
-    let csvContent = "";
-    if (!fileExists) {
-      csvContent += "Name,Mobile Number,Email Address,College/University,Description/Interests,Submission Date\n";
+      let csvContent = "";
+      if (!fileExists) {
+        csvContent += "Name,Mobile Number,Email Address,College/University,Description/Interests,Submission Date\n";
+      }
+
+      const dateStr = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+      const row = [
+        escapeCSVField(name),
+        escapeCSVField(mobile),
+        escapeCSVField(email),
+        escapeCSVField(college),
+        escapeCSVField(description),
+        escapeCSVField(dateStr)
+      ].join(",") + "\n";
+
+      csvContent += row;
+      fs.appendFileSync(csvPath, csvContent, "utf-8");
+    } catch (csvError) {
+      console.warn("Local CSV write skipped or failed (expected on read-only hosting like Vercel):", csvError);
     }
-
-    // Format new application row
-    const dateStr = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-    const row = [
-      escapeCSVField(name),
-      escapeCSVField(mobile),
-      escapeCSVField(email),
-      escapeCSVField(college),
-      escapeCSVField(description),
-      escapeCSVField(dateStr)
-    ].join(",") + "\n";
-
-    csvContent += row;
-
-    // Append to file (creates the file if it doesn't exist)
-    fs.appendFileSync(csvPath, csvContent, "utf-8");
 
     // Forward to Google Sheets Web App if configured
     const webappUrl = process.env.GOOGLE_SHEET_WEBAPP_URL;

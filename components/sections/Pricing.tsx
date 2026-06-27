@@ -114,9 +114,11 @@ export default function Pricing() {
 
               <div className="mb-8">
                 <span className="text-4xl font-bold text-white">
-                  ${formatPrice(tier.monthlyPrice, tier.annualPrice)}
+                  ₹{formatPrice(tier.monthlyPrice, tier.annualPrice)}+
                 </span>
-                <span className="text-sm text-white/50">/month</span>
+                <span className="text-sm text-white/50">
+                  {isAnnual ? "/year" : "/month"}
+                </span>
                 {isAnnual && (
                   <p className="mt-1 text-xs text-primary">
                     Billed annually (save 20%)

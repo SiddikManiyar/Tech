@@ -19,7 +19,7 @@ export default function Logos() {
         className="mb-8 text-center"
       >
         <p className="text-sm font-medium uppercase tracking-widest text-white/40">
-          Trusted by industry leaders
+          Services We Provide
         </p>
       </motion.div>
 

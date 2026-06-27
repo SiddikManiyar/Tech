@@ -17,9 +17,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20">
-                <span className="text-lg font-bold text-primary">T</span>
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo-transparent.png" alt="TechVersa Logo" className="h-9 w-9 object-contain" />
               <span className="text-lg font-bold text-white">TechVersa</span>
             </div>
             <p className="text-sm leading-relaxed text-white/50">

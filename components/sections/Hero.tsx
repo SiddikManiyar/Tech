@@ -45,8 +45,8 @@ function BarChartCard() {
         ))}
         <defs>
           <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0ABAB5" />
-            <stop offset="100%" stopColor="#ADEED9" />
+            <stop offset="0%" stopColor="#0F766E" />
+            <stop offset="100%" stopColor="#14B8A6" />
           </linearGradient>
         </defs>
       </svg>
@@ -102,13 +102,13 @@ function WorkflowDiagramCard() {
     <div className="p-4">
       <p className="mb-2 text-xs font-medium text-white/50">AI Workflow</p>
       <svg viewBox="0 0 200 80" className="h-20 w-full">
-        <line x1="50" y1="40" x2="80" y2="25" stroke="rgba(10,186,181,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
-        <line x1="50" y1="40" x2="80" y2="55" stroke="rgba(10,186,181,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
-        <line x1="120" y1="25" x2="145" y2="40" stroke="rgba(173,238,217,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
-        <line x1="120" y1="55" x2="145" y2="40" stroke="rgba(173,238,217,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <line x1="50" y1="40" x2="80" y2="25" stroke="rgba(15,118,110,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <line x1="50" y1="40" x2="80" y2="55" stroke="rgba(15,118,110,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <line x1="120" y1="25" x2="145" y2="40" stroke="rgba(20,184,166,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
+        <line x1="120" y1="55" x2="145" y2="40" stroke="rgba(20,184,166,0.4)" strokeWidth="1.5" strokeDasharray="4 4" />
         {nodes.map((node) => (
           <g key={node.label}>
-            <circle cx={node.x} cy={node.y} r="14" fill="rgba(10,186,181,0.2)" stroke="#0ABAB5" strokeWidth="1.5" />
+            <circle cx={node.x} cy={node.y} r="14" fill="rgba(15,118,110,0.2)" stroke="#0F766E" strokeWidth="1.5" />
             <text x={node.x} y={node.y + 3} textAnchor="middle" fill="rgba(255,255,255,0.7)" fontSize="7" fontWeight="600">
               {node.label}
             </text>

@@ -57,9 +57,8 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8 lg:px-16">
           <a href="#" className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/20">
-              <span className="text-lg font-bold text-primary">T</span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-transparent.png" alt="TechVersa Logo" className="h-9 w-9 object-contain" />
             <span className="text-lg font-bold text-white">TechVersa</span>
           </a>
 

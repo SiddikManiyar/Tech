@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #0ABAB5;
-  --color-secondary: #56DFCF;
-  --color-accent: #ADEED9;
-  --color-bg: #FFEDF3;
+  --color-primary: #0F766E; /* Rich Teal-700 */
+  --color-secondary: #0D9488; /* Teal-600 */
+  --color-accent: #14B8A6; /* Teal-500 */
+  --color-bg: #FFFAF3; /* Target Off-white */
   --color-surface: #FFFFFF;
-  --color-surface-2: #F6E2E8;
-  --color-border: rgba(10, 186, 181, 0.12);
-  --color-body: #1F302D;
+  --color-surface-2: #F5EFEB; /* Matching warm light-grey/beige surface */
+  --color-border: rgba(15, 118, 110, 0.12); /* Rich Teal borders */
+  --color-body: #1C1917; /* Warm Charcoal Slate */
   --mouse-x: 50%;
   --mouse-y: 50%;
 }
@@ -80,7 +80,7 @@ body {
     color: var(--color-primary);
     background: linear-gradient(
       135deg,
-      #052523 0%,
+      #1F120A 0%,
       var(--color-primary) 100%
     );
     -webkit-background-clip: text;
@@ -90,12 +90,12 @@ body {
 
   @supports not (background-clip: text) {
     .text-gradient {
-      -webkit-text-fill-color: #1F302D;
+      -webkit-text-fill-color: #1C1917;
     }
   }
 
   .text-gradient-primary {
-    background: linear-gradient(135deg, var(--color-primary), #052523);
+    background: linear-gradient(135deg, var(--color-primary), #1F120A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -103,11 +103,11 @@ body {
 
   .glass {
     background: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(10, 186, 181, 0.12);
+    border: 1px solid rgba(15, 118, 110, 0.12);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(10, 186, 181, 0.04);
+    box-shadow: 0 4px 24px rgba(15, 118, 110, 0.04);
   }
 
   .glass-hover {
@@ -117,8 +117,8 @@ body {
   }
 
   .glass-hover:hover {
-    border-color: rgba(10, 186, 181, 0.3);
-    box-shadow: 0 8px 32px rgba(10, 186, 181, 0.08);
+    border-color: rgba(15, 118, 110, 0.3);
+    box-shadow: 0 8px 32px rgba(15, 118, 110, 0.08);
   }
 
   .card-glow {
@@ -168,11 +168,11 @@ body {
   .aurora-gradient {
     background: linear-gradient(
       135deg,
-      rgba(10, 186, 181, 0.15) 0%,
-      rgba(86, 223, 207, 0.1) 25%,
-      rgba(173, 238, 217, 0.08) 50%,
-      rgba(255, 237, 243, 0.12) 75%,
-      rgba(86, 223, 207, 0.1) 100%
+      rgba(15, 118, 110, 0.15) 0%,
+      rgba(13, 148, 136, 0.1) 25%,
+      rgba(20, 184, 166, 0.08) 50%,
+      rgba(255, 250, 243, 0.12) 75%,
+      rgba(13, 148, 136, 0.1) 100%
     );
     background-size: 400% 400%;
     animation: aurora 15s ease infinite alternate;
@@ -206,53 +206,53 @@ body {
 
 /* Light theme text-white and opacity overrides to ensure proper visibility */
 .text-white {
-  color: #1F302D !important;
+  color: #1C1917 !important;
 }
 .text-white\/90 {
-  color: rgba(31, 48, 45, 0.9) !important;
+  color: rgba(28, 25, 23, 0.9) !important;
 }
 .text-white\/80 {
-  color: rgba(31, 48, 45, 0.8) !important;
+  color: rgba(28, 25, 23, 0.8) !important;
 }
 .text-white\/70 {
-  color: rgba(31, 48, 45, 0.7) !important;
+  color: rgba(28, 25, 23, 0.7) !important;
 }
 .text-white\/60 {
-  color: rgba(31, 48, 45, 0.6) !important;
+  color: rgba(28, 25, 23, 0.6) !important;
 }
 .text-white\/50 {
-  color: rgba(31, 48, 45, 0.5) !important;
+  color: rgba(28, 25, 23, 0.5) !important;
 }
 .text-white\/40 {
-  color: rgba(31, 48, 45, 0.4) !important;
+  color: rgba(28, 25, 23, 0.4) !important;
 }
 .text-white\/30 {
-  color: rgba(31, 48, 45, 0.3) !important;
+  color: rgba(28, 25, 23, 0.3) !important;
 }
 .text-white\/20 {
-  color: rgba(31, 48, 45, 0.2) !important;
+  color: rgba(28, 25, 23, 0.2) !important;
 }
 
 /* Hover overrides */
 .hover\:text-white:hover {
-  color: #1F302D !important;
+  color: #1C1917 !important;
 }
 .group:hover .group-hover\:text-white {
-  color: #1F302D !important;
+  color: #1C1917 !important;
 }
 
 /* Background and border overrides */
 .bg-white\/5 {
-  background-color: rgba(31, 48, 45, 0.04) !important;
+  background-color: rgba(28, 25, 23, 0.04) !important;
 }
 .bg-white\/10 {
-  background-color: rgba(31, 48, 45, 0.08) !important;
+  background-color: rgba(28, 25, 23, 0.08) !important;
 }
 .border-white\/10 {
-  border-color: rgba(31, 48, 45, 0.08) !important;
+  border-color: rgba(28, 25, 23, 0.08) !important;
 }
 .border-white\/20 {
-  border-color: rgba(31, 48, 45, 0.12) !important;
+  border-color: rgba(28, 25, 23, 0.12) !important;
 }
 
 /* Exemptions for elements that MUST remain true white */
@@ -266,6 +266,6 @@ body {
   color: #ffffff !important;
 }
 .bg-primary\/20 .text-primary {
-  color: #0ABAB5 !important;
+  color: #0F766E !important;
 }
 

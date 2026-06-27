@@ -9,6 +9,7 @@ import TechStack from "@/components/sections/TechStack";
 import Pricing from "@/components/sections/Pricing";
 
 import FAQ from "@/components/sections/FAQ";
+import Recruitment from "@/components/sections/Recruitment";
 import CTA from "@/components/sections/CTA";
 
 const Testimonials = dynamic(
@@ -29,6 +30,7 @@ export default function Home() {
       <Testimonials />
       <Pricing />
       <FAQ />
+      <Recruitment />
       <CTA />
     </>
   );

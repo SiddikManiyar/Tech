@@ -83,21 +83,24 @@ export const NAV_LINKS = [
   { label: "Projects", href: "#projects" },
   { label: "Pricing", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
+  { label: "Careers", href: "#careers" },
 ];
 
 export const TRUSTED_LOGOS = [
-  "Nexus Corp",
-  "Quantum Labs",
-  "Stellar AI",
-  "Vertex Systems",
-  "Pulse Digital",
-  "Axiom Tech",
-  "Helix Group",
-  "Nova Industries",
-  "Cipher Works",
-  "Orbit Media",
-  "Prism Analytics",
-  "Zenith Cloud",
+  "SaaS",
+  "Chatbot",
+  "Automation",
+  "SEO",
+  "AI Agents",
+  "ML Models",
+  "Cloud Apps",
+  "Mobile Dev",
+  "Web Development",
+  "UI/UX Design",
+  "Cybersecurity",
+  "Databases",
+  "CRM Systems",
+  "IoT Solutions"
 ];
 
 export const SERVICES: Service[] = [
@@ -347,6 +350,7 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Node.js", "PostgreSQL", "Tailwind CSS"],
     gradient: "from-secondary/20 via-accent/10 to-primary/20",
     href: "#",
+    image: "/university-dashboard.jpg",
   },
 ];
 
@@ -377,41 +381,41 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "1",
     quote:
       "TechVersa transformed our legacy platform into a modern, scalable system. Their team's expertise in AI integration gave us a competitive edge we didn't think was possible.",
-    author: "Sarah Chen",
+    author: "Aarav Mehta",
     role: "CTO",
-    company: "Nexus Corp",
+    company: "Veloce Labs",
     rating: 5,
-    initials: "SC",
+    initials: "AM",
   },
   {
     id: "2",
     quote:
       "The speed and quality of delivery exceeded our expectations. They shipped our MVP in 6 weeks and it immediately attracted Series A interest from investors.",
-    author: "Marcus Williams",
+    author: "Ananya Sharma",
     role: "Founder & CEO",
-    company: "Quantum Labs",
+    company: "BanyanPay",
     rating: 5,
-    initials: "MW",
+    initials: "AS",
   },
   {
     id: "3",
     quote:
       "Working with TechVersa feels like having an elite in-house team. They understand our business deeply and consistently deliver solutions that drive real ROI.",
-    author: "Elena Rodriguez",
+    author: "Vikram Malhotra",
     role: "VP of Engineering",
-    company: "Stellar AI",
+    company: "NutriCart",
     rating: 5,
-    initials: "ER",
+    initials: "VM",
   },
   {
     id: "4",
     quote:
       "Their security-first approach gave us confidence to launch in regulated markets. TechVersa handled SOC2 compliance seamlessly while building our product.",
-    author: "James Park",
+    author: "Neha Gupta",
     role: "CISO",
-    company: "Vertex Systems",
+    company: "ShieldSync",
     rating: 5,
-    initials: "JP",
+    initials: "NG",
   },
 ];
 
@@ -421,7 +425,7 @@ export const PRICING_TIERS: PricingTier[] = [
     name: "Starter",
     description: "Perfect for MVPs and small projects",
     monthlyPrice: 4999,
-    annualPrice: 3999,
+    annualPrice: 47988,
     features: [
       { text: "Up to 2 developers", included: true },
       { text: "Weekly progress reports", included: true },
@@ -437,7 +441,7 @@ export const PRICING_TIERS: PricingTier[] = [
     name: "Professional",
     description: "Ideal for growing businesses",
     monthlyPrice: 9999,
-    annualPrice: 7999,
+    annualPrice: 95988,
     popular: true,
     features: [
       { text: "Up to 5 developers", included: true },
@@ -454,7 +458,7 @@ export const PRICING_TIERS: PricingTier[] = [
     name: "Enterprise",
     description: "For large-scale digital transformation",
     monthlyPrice: 19999,
-    annualPrice: 15999,
+    annualPrice: 191988,
     features: [
       { text: "Unlimited developers", included: true },
       { text: "Real-time progress dashboard", included: true },
